@@ -6,10 +6,6 @@
 using namespace boost::asio;
 using namespace boost::asio::ip;
 
-void run_thread(tcp::socket& s)
-{
-
-}
 
 void SocksServer::run()
 {
@@ -21,6 +17,9 @@ void SocksServer::run()
 	{
 		tcp::socket socket(io);
 		acceptor.accept(socket);
-//std::thread thread(run_thread, socket);
+		std::thread thread([&socket]()
+				{
+					
+				});
 	}
 }

@@ -24,6 +24,5 @@ add_executable(${PROJECT_NAME} ${sources} ${headers})
 target_link_libraries(${PROJECT_NAME} 
 	pthread
 	boost_system
-	boost_thread
 	boost_program_options
 	)
