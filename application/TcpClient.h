@@ -3,6 +3,5 @@
 
 class TcpClient
 {
-
 };
 #endif//__TCP_CLIENT__H

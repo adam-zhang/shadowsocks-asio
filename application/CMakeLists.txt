@@ -6,6 +6,7 @@ set(sources main.cpp
 	Cipher.cpp
 	SocksServer.cpp
 	TcpClient.cpp
+	Logger.cpp
 	)
 set(headers
 	CommandLine.h
@@ -16,6 +17,7 @@ set(headers
 	Cipher.h
 	SocksServer.h
 	TcpClient.h
+	Logger.h
 	)
 add_executable(${PROJECT_NAME} ${sources} ${headers})
 target_link_libraries(${PROJECT_NAME} boost_program_options)
