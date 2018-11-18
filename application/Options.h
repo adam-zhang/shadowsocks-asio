@@ -12,7 +12,6 @@ class Options : public Singleton<Options>
 	PROPERTY(int, localPort, setLocalPort);
 	PROPERTY(std::string, key, setKey);
 	PROPERTY(std::string, method, setMethod);
-	PROPERTY(std::string, configFile, setConfigFile);
 	PROPERTY(int, timeout, setTimeout);
 };
 #endif//__OPTIONS__H

@@ -1,6 +1,7 @@
 #include "CommandLine.h"
 #include "Version.h"
 #include "Options.h"
+#include "JsonParser.h"
 #include <vector>
 #include <string>
 #include <sstream>
@@ -25,7 +26,7 @@ static bool parseArgments(const po::variables_map& vmap)
 {
 	return true;
 	if (vmap.count("config_file"))
-		Options::instance().setMethod(vmap["config_file"].as<string>());
+		return JsonParser::parseConfiguration(vmap["config_file"].as<string>());
 	return true;
 	if (vmap.count("server"))
 		Options::instance().setServerAddress(vmap["server"].as<string>());
