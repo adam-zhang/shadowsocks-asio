@@ -1,0 +1,7 @@
+#ifndef __VERSION__H
+#define __VERSION__H
+
+#define SHADOWSOCKS_ASIO_MAJAR_VERSION 1
+#define SHADOWSOCKS_ASIO_MINOR_VERSION 0
+
+#endif//__VERSION__H
