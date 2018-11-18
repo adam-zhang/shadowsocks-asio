@@ -7,7 +7,7 @@
 
 class Options : public Singleton<Options>
 {
-	PROPERTY(std::string, serverAddress, setServerAddresss);
+	PROPERTY(std::string, serverAddress, setServerAddress);
 	PROPERTY(int, serverPort, setServerPort);
 	PROPERTY(int, localPort, setLocalPort);
 	PROPERTY(std::string, key, setKey);

@@ -23,8 +23,6 @@ string help()
 
 static bool parseArgments(const po::variables_map& vmap)
 {
-	if (vmap.count("help"))
-		cout << desc << endl;
 	return true;
 	if (vmap.count("config_file"))
 		Options::instance().setMethod(vmap["config_file"].as<string>());
@@ -34,11 +32,13 @@ static bool parseArgments(const po::variables_map& vmap)
 	if (vmap.count("server_port"))
 		Options::instance().setServerPort(vmap["server_port"].as<int>());
 	if (vmap.count("local_port"))
-		Options::instance().setLocalPort(vmap["local_port"].as<string>());
+		Options::instance().setLocalPort(vmap["local_port"].as<int>());
 	if (vmap.count("encrypt_method"))
 		Options::instance().setMethod(vmap["encrypt_method"].as<string>());
 	if (vmap.count("timeout"))
-		Options::insance().setTimeout(vmap["timeout"].as<int>());
+		Options::instance().setTimeout(vmap["timeout"].as<int>());
+	if (vmap.count("key"))
+		Options::instance().setKey(vmap["key"].as<string>());
 	return true;
 }
 
@@ -77,10 +77,12 @@ static bool parse(int argc, char** argv, string& error)
 		error = "undefined options";
 		return false;
 	}
+	if (argurment_map.count("help"))
+	{
+		cout << desc << endl;
+		return true;
+	}
 	return parseArgments(argurment_map);
-
-
-	return true;
 }
 
 bool CommandLine::parse(int argc, char** argv, string& error)
