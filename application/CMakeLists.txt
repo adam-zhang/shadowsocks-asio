@@ -1,4 +1,5 @@
 project(shadowsocks-local)
+add_definitions(-std=c++11)
 set(sources main.cpp
 	CommandLine.cpp
 	Options.cpp
@@ -20,4 +21,9 @@ set(headers
 	Logger.h
 	)
 add_executable(${PROJECT_NAME} ${sources} ${headers})
-target_link_libraries(${PROJECT_NAME} boost_program_options)
+target_link_libraries(${PROJECT_NAME} 
+	pthread
+	boost_system
+	boost_thread
+	boost_program_options
+	)
