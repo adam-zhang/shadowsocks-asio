@@ -32,9 +32,8 @@ void printData(const vector<uint8_t>& data)
 	cout << "size:" << data.size() << endl;
 	for(auto i = 0; i != data.size(); ++i)
 	{
-		cout << "1";
 		cout << hex << setw(2) << setfill('0') << (unsigned int)data[i] << " ";
-		cout << "OK";
+		cout << i << endl;
 	}
 }
 
