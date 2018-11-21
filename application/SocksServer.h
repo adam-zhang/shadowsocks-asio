@@ -4,8 +4,8 @@
 class SocksServer
 {
 	public:
-		SocksServer();
-		~SocksServer();
+		SocksServer(){};
+		~SocksServer(){};
 	public:
 		void run();
 };

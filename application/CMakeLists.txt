@@ -1,6 +1,6 @@
 project(shadowsocks-local)
 add_definitions(-std=c++11)
-set(sources main.cpp
+set(sources local.cpp
 	CommandLine.cpp
 	Options.cpp
 	JsonParser.cpp
