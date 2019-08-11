@@ -2,31 +2,10 @@
 #define __OPTIONS__H
 
 #include <string>
+#include "enums.h"
 
 class Options
 {
-	enum Method
-	{
-		RC4_MD5,
-		AES_128_GCM,
-		AES_192_GCM,
-		AES_256_GCM,
-		AES_128_CFB,
-		AES_192_CFB,
-		AES_256_CFB,
-		AES_128_CTR,
-		AES_192_CTR,
-		AES_256_CTR,
-		camelia_128_cfb,
-		camelia_192_cfb,
-		camelia_256_cfb,
-		bf_cfb,
-		chacha20_ietf_poly1305,
-		xchacha20_ietf_poly1305,
-		salsa20,
-		chacha20,
-		chacha20_ietf,
-	};
 	enum MODE
 	{
 		TCP,
@@ -39,11 +18,11 @@ public:
 private:
 	short localPort_;
 	std::string localAddress_;
-	short remotePort_;
-	std::string remoteAddress_;
+	short serverPort_;
+	std::string serverHost_;
 	std::string password_;
 	int timeout_;
-	Method method_;
+	EncryptMethods method_;
 	std::string user_;
 	std::string pidFile_;
 	int maxNumberFiles_;
@@ -79,10 +58,12 @@ public:
 	{ return localAddress_; }
 	void setLocalAddress(const std::string& value)
 	{ localAddress_ = value; }
-	Method method( )
+	EncryptMethods method( )
 	{ return method_; }
-	void setMethod(Method value)
-	{ method_ = value; }
+	void setMethod(EncryptMethods value)
+	{ 
+		method_ = value;
+       	}
 	int timeout()
 	{ return timeout_; }
 	void setTimeout(int value)
@@ -95,9 +76,13 @@ public:
 	{ return localPort_; }
 	void setLocalPort(short value)
 	{ localPort_ = value; }
-	short remotePort()
-	{ return remotePort_; }
-	void setRemotePort(short value)
-	{ remotePort_ =  value; }
+	short serverPort()
+	{ return serverPort_; }
+	void setServerPort(short value)
+	{ serverPort_ =  value; }
+	void setServerHost(const std::string& value)
+	{ serverHost_ = value; }
+	const std::string& serverHost()
+	{ return serverHost_; }
 };
 #endif//__OPTIONS__H
