@@ -3,7 +3,8 @@ include_directories(../common)
 set(sources main.cpp
 	../common/CommandLineParser.cpp
 	../common/GlobalVariable.cpp
-	../common/Options.cpp)
+	../common/Options.cpp
+	../common/JsonParser.cpp)
 set(headers ../common/CommandLineParser.h)
 add_executable(${PROJECT_NAME} ${sources})
 target_link_libraries(${PROJECT_NAME} 
